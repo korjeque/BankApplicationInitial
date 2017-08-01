@@ -10,16 +10,15 @@ import com.luxoft.bankapp.exceptions.BankException;
  */
 public class FindClientCommand implements Command {
 
-    private RequestCommand rCommand;
-
-    public printCommandInfo(){
-        this.rCommand = rCommand;
-    }
-
+    Client currentClient;
     public void execute(Client client,Bank bank ) throws ClientExistsException {
-
-        return bank.checkIfClientExists(client);
-
+        if(bank.checkIfClientExists(client)){
+            currentClient = client;
+        }
+    }
+    @Override
+    public void printCommandInfo() {
+        System.out.println(currentClient.toString());
     }
 
 }
