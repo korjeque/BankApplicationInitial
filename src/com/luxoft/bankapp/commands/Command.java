@@ -5,6 +5,6 @@ package com.luxoft.bankapp.commands;
  */
 public interface Command {
 
-       void execute();
-       void printCommandInfo();
+       void execute();
+       void printCommandInfo();
 }

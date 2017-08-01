@@ -5,13 +5,12 @@ package com.luxoft.bankapp.commands;
  */
 public class RequestCommand {
 
-    private String cmd = "ABC";
+    private String cmd = "";
 
     public void execute(){
         System.out.println("Stock [ Name: "+cmd);
     }
     public void printCommandInfo(){
-        System.out.println("Stock [ Name: "+name+",
-                Quantity: " + quantity +" ] sold");
+        System.out.println("Stock [ Name: "+cmd);
     }
 }
