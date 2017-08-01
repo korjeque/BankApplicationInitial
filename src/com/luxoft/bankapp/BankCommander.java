@@ -1,13 +1,10 @@
 package com.luxoft.bankapp;
 
-/**
- * Created by Кирилл on 01.08.2017.
- */
 class BankCommander{
-    public static Bank currentBank = new Bank("MyBank");
-    public static Client currentClient;
+public static Bank currentBank = new Bank("MyBank");
+public static Client currentClient;
                 
-    static Command[] commands ={
+static Command[] commands ={
                 new FindClientCommand(), // 1
                 new GetAccountCommand(), // 2
 
@@ -22,16 +19,16 @@ class BankCommander{
                         System.out.println("Exit");
                     }
                 }
-    };
+        };
             
-    public static void main(String args[]){
+public static void main(String args[]){
 
 
         Scanner s=new Scanner(System.in);
 
         while (true){
         for (int i=0;i<commands.length;i++){ 
-                System.out.print(i+") ");
+            System.out.print(i+") ");
                 commands[i].printCommandInfo();
         }
         String commandString=s.nextLine();
@@ -41,5 +38,5 @@ class BankCommander{
                  }
             
         }
-}
+        }
          
