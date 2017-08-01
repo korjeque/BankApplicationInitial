@@ -12,4 +12,5 @@ public interface Command {
 
        void execute(Client client, Bank bank) throws BankException, ClientExistsException;
        void printCommandInfo();
+       void CommandInvoker();
 }

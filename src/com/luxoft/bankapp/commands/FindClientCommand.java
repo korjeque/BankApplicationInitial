@@ -8,13 +8,15 @@ import com.luxoft.bankapp.exceptions.BankException;
 /**
  * Created by Кирилл on 01.08.2017.
  */
-public class FindClientCommand implements Command {
+public class FindClientCommand extends CommandInvoker {
 
-    Client currentClient;
-    public void execute(Client client,Bank bank ) throws ClientExistsException {
-        if(bank.checkIfClientExists(client)){
-            currentClient = client;
-        }
+    public FindClientCommand(Bank bank, Client client) {
+        super(bank, client);
+    }
+
+    public void execute() throws ClientExistsException {
+        if(!currentBank.checkIfClientExists(currentClient))
+            throw new ClientExistsException();
     }
     @Override
     public void printCommandInfo() {

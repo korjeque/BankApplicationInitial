@@ -5,17 +5,18 @@ import java.util.Scanner;
 import com.luxoft.bankapp.commands.Command;
 import com.luxoft.bankapp.commands.FindClientCommand;
 import com.luxoft.bankapp.commands.GetAccountCommand;
+import com.luxoft.bankapp.exceptions.ClientExistsException;
 import com.luxoft.bankapp.model.Bank;
 import com.luxoft.bankapp.model.Client;
 
 public class BankCommander {
 
-    public static Bank currentBank = new Bank("MyBank");
+    public static Bank currentBank = new Bank();
     public static Client currentClient;
 
     static Command[] commands = {
-            new FindClientCommand(), // 1
-            new GetAccountCommand(), // 2
+            new FindClientCommand(currentClient,currentBank),
+            new GetAccountCommand(currentClient,currentBank), // 2
             // etc.
             new Command() { // 7 - Exit Command
                 public void execute() {

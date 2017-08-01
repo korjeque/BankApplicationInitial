@@ -7,12 +7,16 @@ import com.luxoft.bankapp.model.Client;
 /**
  * Created by Кирилл on 01.08.2017.
  */
-public class GetAccountCommand implements Command {
+public class GetAccountCommand extends CommandInvoker {
 
-    Client currentClient;
-    public void execute(Client client,Bank bank ) throws ClientExistsException {
-        if(bank.checkIfClientExists(client)){
-            currentClient = client;
+
+    @Override
+    public void execute() throws ClientExistsException {
+
+        if(currentBank.checkIfClientExists(currentClient)){
+            currentBank.checkIfClientExists(currentClient);
+        }else {
+            throw new ClientExistsException;
         }
     }
     @Override
